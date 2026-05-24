@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../services/api';
 
-const user = JSON.parse(localStorage.getItem('user'));
+const user = JSON.parse(localStorage.getItem('user') || null );
 const accessToken = localStorage.getItem('accessToken');
 
 // ─── Thunks ──────────────────────────────────────────────────────────────────
