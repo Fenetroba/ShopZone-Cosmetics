@@ -1,0 +1,331 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   GLOBAL DESIGN TOKENS
+   Change colors here — every component picks them up instantly.
+   ============================================================ */
+
+:root {
+  /* ── Brand / Primary ── */
+  --color-primary:        #313b30;   /* indigo-500  */
+  --color-primary-hover:  #222c21;   /* indigo-600  */
+  --color-primary-light:  #e0e7ff;   /* indigo-100  */
+  --color-primary-dark:   #f59e0b;   /* indigo-800  */
+  --color-primary-fg:     #ffffff;   /* text on primary bg */
+
+  /* ── Accent / Secondary ── */
+  --color-accent:         #f59e0b;   /* amber-500   */
+  --color-accent-hover:   #d97706;   /* amber-600   */
+  --color-accent-light:   #fef3c7;   /* amber-100   */
+  --color-accent-fg:      #ffffff;
+
+  /* ── Semantic ── */
+  --color-success:        #10b981;   /* emerald-500 */
+  --color-success-light:  #d1fae5;   /* emerald-100 */
+  --color-success-fg:     #065f46;
+
+  --color-danger:         #ef4444;   /* red-500     */
+  --color-danger-light:   #fee2e2;   /* red-100     */
+  --color-danger-fg:      #991b1b;
+
+  --color-warning:        #f59e0b;   /* amber-500   */
+  --color-warning-light:  #fef3c7;   /* amber-100   */
+  --color-warning-fg:     #92400e;
+
+  --color-info:           #3b82f6;   /* blue-500    */
+  --color-info-light:     #dbeafe;   /* blue-100    */
+  --color-info-fg:        #f59e0b;
+
+  /* ── Surface / Background ── */
+  --color-bg:             #ffffff;
+  --color-bg-subtle:      #f9fafb;   /* gray-50     */
+  --color-bg-muted:       #f3f4f6;   /* gray-100    */
+
+  /* ── Border ── */
+  --color-border:         #e5e7eb;   /* gray-200    */
+  --color-border-strong:  #d1d5db;   /* gray-300    */
+
+  /* ── Text ── */
+  --color-text:           #111827;   /* gray-900    */
+  --color-text-muted:     #6b7280;   /* gray-500    */
+  --color-text-subtle:    #9ca3af;   /* gray-400    */
+
+  /* ── Sidebar / Dashboard ── */
+  --color-sidebar-bg:     #ffffff;
+  --color-sidebar-border: #e5e7eb;
+  --color-sidebar-active: #e0e7ff;   /* primary-light */
+  --color-sidebar-active-text: #4f46e5;
+
+  /* ── Scrollbar ── */
+  --color-scrollbar-track: #f3f4f6;
+  --color-scrollbar-thumb: #d1d5db;
+  --background:        oklch(1 0 0);
+  --foreground:        oklch(0.145 0 0);
+  --card:        oklch(1 0 0);
+  --card-foreground:        oklch(0.145 0 0);
+  --popover:        oklch(1 0 0);
+  --popover-foreground:        oklch(0.145 0 0);
+  --primary:        oklch(0.205 0 0);
+  --primary-foreground:        oklch(0.985 0 0);
+  --secondary:        oklch(0.97 0 0);
+  --secondary-foreground:        oklch(0.205 0 0);
+  --muted:        oklch(0.97 0 0);
+  --muted-foreground:        oklch(0.556 0 0);
+  --accent:        oklch(0.97 0 0);
+  --accent-foreground:        oklch(0.205 0 0);
+  --destructive:        oklch(0.577 0.245 27.325);
+  --border:        oklch(0.922 0 0);
+  --input:        oklch(0.922 0 0);
+  --ring:        oklch(0.708 0 0);
+  --chart-1:        oklch(0.87 0 0);
+  --chart-2:        oklch(0.556 0 0);
+  --chart-3:        oklch(0.439 0 0);
+  --chart-4:        oklch(0.371 0 0);
+  --chart-5:        oklch(0.269 0 0);
+  --radius:        0.625rem;
+  --sidebar:        oklch(0.985 0 0);
+  --sidebar-foreground:        oklch(0.145 0 0);
+  --sidebar-primary:        oklch(0.205 0 0);
+  --sidebar-primary-foreground:        oklch(0.985 0 0);
+  --sidebar-accent:        oklch(0.97 0 0);
+  --sidebar-accent-foreground:        oklch(0.205 0 0);
+  --sidebar-border:        oklch(0.922 0 0);
+  --sidebar-ring:        oklch(0.708 0 0);
+}
+
+/* ── Dark mode overrides ── */
+.dark {
+  --color-primary:        #f5f6ff;   /* indigo-400  */
+  --color-primary-hover:  #6366f1;   /* indigo-500  */
+  --color-primary-light:  #1e1b4b;   /* indigo-950  */
+  --color-primary-dark:   #c7d2fe;   /* indigo-200  */
+  --color-primary-fg:     #ffffff;
+
+  --color-accent:         #fbbf24;   /* amber-400   */
+  --color-accent-hover:   #f59e0b;
+  --color-accent-light:   #451a03;
+  --color-accent-fg:      #ffffff;
+
+  --color-success:        #34d399;   /* emerald-400 */
+  --color-success-light:  #022c22;
+  --color-success-fg:     #a7f3d0;
+
+  --color-danger:         #f87171;   /* red-400     */
+  --color-danger-light:   #450a0a;
+  --color-danger-fg:      #fecaca;
+
+  --color-warning:        #fbbf24;
+  --color-warning-light:  #451a03;
+  --color-warning-fg:     #fde68a;
+
+  --color-info:           #60a5fa;   /* blue-400    */
+  --color-info-light:     #969aa8;
+  --color-info-fg:        #bfdbfe;
+
+  --color-bg:             #000000;   /* gray-950    */
+  --color-bg-subtle:      #ffffff;   /* gray-900    */
+  --color-bg-muted:       #000000;   /* gray-800    */
+
+  --color-border:         #1f2937;   /* gray-800    */
+  --color-border-strong:  #374151;   /* gray-700    */
+
+  --color-text:           #f9fafb;   /* gray-50     */
+  --color-text-muted:     #9ca3af;   /* gray-400    */
+  --color-text-subtle:    #6b7280;   /* gray-500    */
+
+  --color-sidebar-bg:     #111827;
+  --color-sidebar-border: #1f2937;
+  --color-sidebar-active: #1e1b4b;
+  --color-sidebar-active-text: #818cf8;
+
+  --color-scrollbar-track: #1f2937;
+  --color-scrollbar-thumb: #374151;
+  --background:        oklch(0.145 0 0);
+  --foreground:        oklch(0.985 0 0);
+  --card:        oklch(0.205 0 0);
+  --card-foreground:        oklch(0.985 0 0);
+  --popover:        oklch(0.205 0 0);
+  --popover-foreground:        oklch(0.985 0 0);
+  --primary:        oklch(0.922 0 0);
+  --primary-foreground:        oklch(0.205 0 0);
+  --secondary:        oklch(0.269 0 0);
+  --secondary-foreground:        oklch(0.985 0 0);
+  --muted:        oklch(0.269 0 0);
+  --muted-foreground:        oklch(0.708 0 0);
+  --accent:        oklch(0.269 0 0);
+  --accent-foreground:        oklch(0.985 0 0);
+  --destructive:        oklch(0.704 0.191 22.216);
+  --border:        oklch(1 0 0 / 10%);
+  --input:        oklch(1 0 0 / 15%);
+  --ring:        oklch(0.556 0 0);
+  --chart-1:        oklch(0.87 0 0);
+  --chart-2:        oklch(0.556 0 0);
+  --chart-3:        oklch(0.439 0 0);
+  --chart-4:        oklch(0.371 0 0);
+  --chart-5:        oklch(0.269 0 0);
+  --sidebar:        oklch(0.205 0 0);
+  --sidebar-foreground:        oklch(0.985 0 0);
+  --sidebar-primary:        oklch(10.912% 0.00999 284.616);
+  --sidebar-primary-foreground:        oklch(0.985 0 0);
+  --sidebar-accent:        oklch(0.269 0 0);
+  --sidebar-accent-foreground:        oklch(0.985 0 0);
+  --sidebar-border:        oklch(1 0 0 / 10%);
+  --sidebar-ring:        oklch(0.556 0 0);
+}
+
+/* ============================================================
+   TAILWIND v4 THEME EXTENSION
+   Exposes CSS vars as Tailwind utility classes:
+     bg-primary, text-primary, border-primary, etc.
+   ============================================================ */
+@theme inline {
+  --color-primary:        var(--color-primary);
+  --color-primary-hover:  var(--color-primary-hover);
+  --color-primary-light:  var(--color-primary-light);
+  --color-primary-dark:   var(--color-primary-dark);
+  --color-primary-fg:     var(--color-primary-fg);
+
+  --color-accent:         var(--color-accent);
+  --color-accent-hover:   var(--color-accent-hover);
+  --color-accent-light:   var(--color-accent-light);
+  --color-accent-fg:      var(--color-accent-fg);
+
+  --color-success:        var(--color-success);
+  --color-success-light:  var(--color-success-light);
+  --color-success-fg:     var(--color-success-fg);
+
+  --color-danger:         var(--color-danger);
+  --color-danger-light:   var(--color-danger-light);
+  --color-danger-fg:      var(--color-danger-fg);
+
+  --color-warning:        var(--color-warning);
+  --color-warning-light:  var(--color-warning-light);
+  --color-warning-fg:     var(--color-warning-fg);
+
+  --color-info:           var(--color-info);
+  --color-info-light:     var(--color-info-light);
+  --color-info-fg:        var(--color-info-fg);
+
+  --color-bg:             var(--color-bg);
+  --color-bg-subtle:      var(--color-bg-subtle);
+  --color-bg-muted:       var(--color-bg-muted);
+
+  --color-border:         var(--color-border);
+  --color-border-strong:  var(--color-border-strong);
+
+  --color-text:           var(--color-text);
+  --color-text-muted:     var(--color-text-muted);
+  --color-text-subtle:    var(--color-text-subtle);
+
+  --color-sidebar-bg:          var(--color-sidebar-bg);
+  --color-sidebar-border:      var(--color-sidebar-border);
+  --color-sidebar-active:      var(--color-sidebar-active);
+  --color-sidebar-active-text: var(--color-sidebar-active-text);
+  --font-heading:        var(--font-sans);
+  --font-sans:        'Geist Variable', sans-serif;
+  --color-sidebar-ring:        var(--sidebar-ring);
+  --color-sidebar-accent-foreground:        var(--sidebar-accent-foreground);
+  --color-sidebar-accent:        var(--sidebar-accent);
+  --color-sidebar-primary-foreground:        var(--sidebar-primary-foreground);
+  --color-sidebar-primary:        var(--sidebar-primary);
+  --color-sidebar-foreground:        var(--sidebar-foreground);
+  --color-sidebar:        var(--sidebar);
+  --color-chart-5:        var(--chart-5);
+  --color-chart-4:        var(--chart-4);
+  --color-chart-3:        var(--chart-3);
+  --color-chart-2:        var(--chart-2);
+  --color-chart-1:        var(--chart-1);
+  --color-ring:        var(--ring);
+  --color-input:        var(--input);
+  --color-destructive:        var(--destructive);
+  --color-accent-foreground:        var(--accent-foreground);
+  --color-muted-foreground:        var(--muted-foreground);
+  --color-muted:        var(--muted);
+  --color-secondary-foreground:        var(--secondary-foreground);
+  --color-secondary:        var(--secondary);
+  --color-primary-foreground:        var(--primary-foreground);
+  --color-popover-foreground:        var(--popover-foreground);
+  --color-popover:        var(--popover);
+  --color-card-foreground:        var(--card-foreground);
+  --color-card:        var(--card);
+  --color-foreground:        var(--foreground);
+  --color-background:        var(--background);
+  --radius-sm:        calc(var(--radius) * 0.6);
+  --radius-md:        calc(var(--radius) * 0.8);
+  --radius-lg:        var(--radius);
+  --radius-xl:        calc(var(--radius) * 1.4);
+  --radius-2xl:        calc(var(--radius) * 1.8);
+  --radius-3xl:        calc(var(--radius) * 2.2);
+  --radius-4xl:        calc(var(--radius) * 2.6);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Smooth dark/light transitions on everything except images */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: var(--color-scrollbar-track); }
+::-webkit-scrollbar-thumb  { background: var(--color-scrollbar-thumb); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+/* ── Line clamp utilities ── */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
