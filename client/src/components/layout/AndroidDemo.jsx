@@ -7,7 +7,7 @@ export function AndroidDemo() {
       <Android
         className="size-full text-center  "
 
-        videoSrc="https://www.pexels.com/download/video/5422214/"
+        videoSrc="https://cdn.pixabay.com/video/2019/08/07/25850-352978454_large.mp4"
       />
     </div>
   )
