@@ -48,7 +48,7 @@ export function Android({
           clipPath="url(#clip0_514_20855)"
           preserveAspectRatio="xMidYMid slice">
           <video
-            className="size-full object-cover "
+            className="size-full object-cover sm:rotate-90"
             src={videoSrc}
             autoPlay
             loop
